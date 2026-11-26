@@ -4,6 +4,14 @@
 ### CHE1147 · Chemical Data Science and Engineering · University of Toronto
 **Team 4 · Fall 2026**
 
+
+### 📰 Research Highlight
+
+Discover the key findings and potential impact of our CHE1147 project.
+
+**[Read Our Research Article: What Can Machine Learning Tell Us About the Air Inside Our Homes?](docs/RESEARCH_HIGHLIGHT.md)**
+
+
 ![Python](https://img.shields.io/badge/Python-3.11-3572A5)
 ![Jupyter](https://img.shields.io/badge/Notebooks-Jupyter-F37626)
 ![Project](https://img.shields.io/badge/Study-Residential%20Air%20Quality-0E7490)
