@@ -27,13 +27,13 @@ The repository now contains **two clearly separated workflows**: the original te
 
 | Location | What is inside? |
 |---|---|
-| 🧑‍💻 **[`main.ipynb`](main.ipynb)** | Frank / team original Jupyter notebook — unchanged |
-| 🐍 **[`config.py`](config.py), [`pipeline.py`](pipeline.py)** | Original Python configuration and pipeline — unchanged |
-| 🧩 **[`data_loader.py`](data_loader.py), [`feature_engineering.py`](feature_engineering.py)** | Original loading and feature scripts — unchanged |
-| 🧪 **[`cross_validation.py`](cross_validation.py), [`nested_cv.py`](nested_cv.py)** | Original team cross-validation experiments — unchanged |
-| 🎯 **[`tune_lightgbm.py`](tune_lightgbm.py), [`tune_xgboost.py`](tune_xgboost.py)** | Original hyperparameter-tuning scripts — unchanged |
-| 🗃️ **[`DATA/`](DATA/)** | **All original raw monitoring files, preserved** |
-| ✨ **[`Second_Model/`](Second_Model/)** | **Revised / paper-aligned experiment** and its results |
+| 🧑‍💻 **[`main.ipynb`](main.ipynb)** | Original Jupyter notebook |
+| 🐍 **[`config.py`](config.py), [`pipeline.py`](pipeline.py)** | Python configuration and pipeline |
+| 🧩 **[`data_loader.py`](data_loader.py), [`feature_engineering.py`](feature_engineering.py)** | Loading and feature scripts |
+| 🧪 **[`cross_validation.py`](cross_validation.py), [`nested_cv.py`](nested_cv.py)** | Team cross-validation experiments |
+| 🎯 **[`tune_lightgbm.py`](tune_lightgbm.py), [`tune_xgboost.py`](tune_xgboost.py)** | Hyperparameter-tuning scripts |
+| 🗃️ **[`DATA/`](DATA/)** | **Original raw monitoring files* |
+| ✨ **[`Second_Model/`](Second_Model/)** | **Revised experiment** and its results |
 | 📓 **[Second Model executed notebook](Second_Model/Second_Model_Executed.ipynb)** | Saved outputs included |
 | 📈 **[Second Model HTML results](Second_Model/results_dashboard.html)** | Self-contained HTML dashboard — download and open locally |
 | 🖼️ **[`assets/figures/`](assets/figures/)** | Research figures shown on this README |
