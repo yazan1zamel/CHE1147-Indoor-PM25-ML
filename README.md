@@ -55,7 +55,7 @@ The repository now contains **two clearly separated workflows**: the original te
 
 ## 🧪 Two modeling workflows
 
-| | Original Team Exploration | ✨ Second Model — paper-aligned |
+| | initial Exploration | ✨ Second Revised Model |
 |---|---|---|
 | Code entry | `main.ipynb` and root `.py` files | `Second_Model/Second_Model_Executed.ipynb` |
 | Split | Original seed 42 | 54 development / 14 held-out households; seed 2026 |
@@ -64,8 +64,6 @@ The repository now contains **two clearly separated workflows**: the original te
 | Persistence benchmark | Not in original four-model comparison | Explicit baseline and selection benchmark |
 | Saved output | Original notebook | CSV metrics, figures, HTML results dashboard |
 
-> [!IMPORTANT]
-> These workflows use different data preparation, predictors, household partitions, and tuning methods. **Their scores should not be directly mixed into one comparison**. Original scripts were kept intact for transparency, and the Second Model is labeled separately.
 
 ---
 
@@ -81,7 +79,7 @@ The repository now contains **two clearly separated workflows**: the original te
 | Predictors | **35** |
 | Evaluation | Five-fold grouped CV + household hold-out |
 
-## 📊 Second Model results
+## 📊 Revised Model results
 
 **Held-out evaluation: 14 households, 12,104 target intervals.** MAE and RMSE are in µg/m³. ↓ = lower is better; ↑ = higher is better.
 
