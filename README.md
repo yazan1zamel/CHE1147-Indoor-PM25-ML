@@ -179,9 +179,7 @@ Course instructor: Seyed Mohamad Moosavi
 - [Chen & Guestrin (2016), XGBoost](https://doi.org/10.1145/2939672.2939785)
 - [CHE1147 course repository](https://github.com/AI4ChemS/CHE1147)
 
-## 💬 Feedback
-
-Suggestions and bug reports can be submitted via the GitHub repository's **Issues** tab.
+## 💬 Thank you!
 
 ---
 
