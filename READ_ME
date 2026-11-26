@@ -1,0 +1,29 @@
+indoor-pm25-prediction/
+├── README.md
+├── requirements.txt
+├── decisions.md
+├── .gitignore
+│
+├── config.py                     # All default settings
+├── data_loader.py                # Load household files
+├── feature_engineering.py        # Lags, time features, reduced features
+├── pipeline.py                   # Shared data preparation
+├── evaluation.py                 # Metrics and basic plots
+├── plots.py                      # Mandatory diagnostic plots
+│
+├── main.ipynb                    # Main step-by-step notebook
+│
+├── cross_validation.py           # GroupKFold by household
+├── tune_lightgbm.py              # Optuna tuning for LightGBM
+├── tune_xgboost.py               # Optuna tuning for XGBoost
+│
+└── plots/                        # Generated figures (gitignored)
+
+# Indoor PM2.5 Prediction
+
+Machine learning models for predicting indoor PM2.5 concentrations using the LBNL California homes dataset.
+
+## Setup
+
+```bash
+pip install -r requirements.txt

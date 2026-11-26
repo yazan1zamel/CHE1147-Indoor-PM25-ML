@@ -1,0 +1,7 @@
+{
+  "model__subsample": 0.85,
+  "model__n_estimators": 500,
+  "model__min_child_weight": 1,
+  "model__max_depth": 2,
+  "model__learning_rate": 0.02
+}

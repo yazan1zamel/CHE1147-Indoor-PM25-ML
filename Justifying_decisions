@@ -1,0 +1,95 @@
+# Modeling Decisions – Indoor PM2.5 Prediction
+
+This document explains the main decisions made during the project and why they were chosen.
+
+## 1. Target Variable
+**Decision:** Predict indoor PM2.5 (`PM_MET_IN1`).
+
+**Why:** Indoor PM2.5 is a key air quality metric with direct health relevance. The dataset contains continuous measurements of this variable across many homes.
+
+## 2. Time Resolution
+**Decision:** Tested 1-hour, 30-minute, and 10-minute resolutions. Final focus is on 10-minute data.
+
+**Why:** Finer resolution provides more data points and stronger short-term predictive signal. Test R² improved substantially when moving from hourly to 10-minute data.
+
+## 3. Capping Extreme Values
+**Decision:** Cap indoor PM2.5 at 100 µg/m³.
+
+**Why:** A small number of extreme outliers distorted error metrics. Capping improved stability without removing legitimate high-pollution events.
+
+## 4. Household Filtering
+**Decision:** Keep only households with sufficient continuous data.
+
+**Why:** Homes with very little data produced unreliable lag features. Filtering improved model stability.
+
+## 5. Feature Engineering Focus
+**Decision:** Prioritize recent lags of indoor PM plus outdoor PM, ventilation, and basic environmental variables.
+
+**Why:** Autocorrelation analysis showed that recent indoor PM is by far the strongest predictor. Other variables provide supporting signal.
+
+## 6. Feature Reduction Levels
+**Decision:** Support multiple levels of feature reduction.
+
+| Level      | Approx. features | Description                          |
+|------------|------------------|--------------------------------------|
+| ultra_low  | 5                | Only the strongest predictors        |
+| low        | ~9               | Core lags + key environmental vars   |
+| medium     | ~20              | Balanced set (default)               |
+| high       | ~27              | More inclusive                       |
+
+**Why:** Many of the original ~160 features were sparse or room-specific. A smaller set is easier to interpret, trains faster, and generalizes better to new homes. The `ultra_low` level is useful for testing how much performance can be retained with minimal features.
+
+## 7. Train/Test Split Strategy
+**Decision:** Primarily use household-level splits. Time-based splits were also tested.
+
+**Household-level split:**
+- Entire homes are held out for testing.
+- Answers: “Can the model generalize to new residential buildings?”
+- Aligns with the original proposal.
+
+**Time-based split:**
+- Earliest data for training, most recent for testing.
+- Answers: “Can the model predict future PM in known homes?”
+
+## 8. Model Choice
+**Decision:** Compare Linear Regression, Ridge Regression, LightGBM, and XGBoost.
+
+**Why:** 
+- Linear models serve as a strong, interpretable baseline.
+- Gradient boosting models can capture nonlinear relationships if they exist.
+- Cross-validation showed that all models perform similarly when using the reduced feature set, with Linear Regression being competitive or better in some cases.
+
+## 9. Hyperparameter Tuning
+**Decision:** Use Optuna to tune LightGBM and XGBoost.
+
+**Result (XGBoost example):**
+- Default Test MAE: 0.501
+- Tuned Test MAE: 0.412
+
+**Why:** Tuning provided a meaningful improvement in absolute error. Best parameters are saved to text files for reuse.
+
+## 10. Cross-Validation
+**Decision:** Use GroupKFold by household as the main cross-validation method.
+
+**Why:** 
+- Each fold tests on completely unseen households.
+- Provides a more reliable estimate of performance on new homes than a single split.
+- Aligns with the original proposal goal of generalizing to new buildings.
+
+## 11. Evaluation Metrics
+**Decision:** Report MAE, RMSE, and R² on both train and test sets.
+
+**Why:**
+- MAE is interpretable in physical units (µg/m³).
+- RMSE penalizes large errors.
+- R² shows the proportion of variance explained.
+
+## 12. Handling Missing Values
+**Decision:** Median imputation after removing completely empty columns.
+
+**Why:** Median is robust to outliers. Empty columns were removed to avoid errors during imputation.
+
+## 13. Number of Trees (Gradient Boosting)
+**Decision:** Use approximately 200 trees for LightGBM and XGBoost.
+
+**Why:** Performance improved up to ~200 trees and then plateaued or slightly declined, indicating the onset of overfitting beyond that point.

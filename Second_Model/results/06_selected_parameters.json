@@ -1,0 +1,12 @@
+{
+  "Ridge": {
+    "model__alpha": 0.1
+  },
+  "LightGBM": {
+    "model__num_leaves": 15,
+    "model__n_estimators": 150,
+    "model__min_child_samples": 40,
+    "model__max_depth": 3,
+    "model__learning_rate": 0.04
+  }
+}
