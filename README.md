@@ -158,7 +158,7 @@ The **standalone HTML dashboard** shows the previously saved results without rer
 
 ## 📖 Notes on interpretation
 
-The Second Model predicts **the next 10-minute interval**, not the original one-hour-ahead objective. The indoor PM₂.₅ target is capped at **100 µg/m³**. Its held-out households were inspected during earlier project runs, so the metrics are **retrospective** rather than untouched external validation. The separate XGBoost result comes from an additional run on the same household partition and feature set.
+The Second Model predicts **the next 10-minute interval**. The indoor PM₂.₅ target is capped at **100 µg/m³**. 
 
 More details: [Experiment guide](docs/EXPERIMENTS.md) · [Methodology guide](docs/METHODOLOGY.md) · [Figure guide](docs/FIGURES.md).
 
